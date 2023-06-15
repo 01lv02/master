@@ -91,7 +91,7 @@ def create_dictionaries(model=None,
         combined= sequence.pad_sequences(combined, maxlen=maxlen)#每个句子所含词语对应的索引，所以句子中含有频数小于10的词语，索引为0
         return w2indx, w2vec,combined
     else:
-        print （'No data provided...'）
+        print('Variable x: {}'.format(x))
 
 
 #创建词语字典，并返回每个词语的索引，词向量，以及每个句子所对应的词语索引

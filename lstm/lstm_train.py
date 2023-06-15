@@ -166,5 +166,5 @@ index_dict, word_vectors,combined=word2vec_train(combined)
 print ('Setting up Arrays for Keras Embedding Layer...')
 n_symbols,embedding_weights,x_train,y_train,x_test,y_test=get_data(index_dict, word_vectors,combined,y)
 print ("x_train.shape and y_train.shape:")
-print x_train.shape,y_train.shape
+print (x_train.shape,y_train.shape)
 train_lstm(n_symbols,embedding_weights,x_train,y_train,x_test,y_test)

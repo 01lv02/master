@@ -157,7 +157,7 @@ def train_lstm(n_symbols,embedding_weights,x_train,y_train,x_test,y_test):
 #训练模型，并保存
 print ('Loading Data...')
 combined,y=loadfile()
-print len(combined),len(y)
+print (len(combined),len(y))
 print ('Tokenising...')
 combined = tokenizer(combined)
 print ('Training a Word2vec model...')

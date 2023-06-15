@@ -140,10 +140,10 @@ def train_lstm(n_symbols,embedding_weights,x_train,y_train,x_test,y_test):
     model.compile(loss='categorical_crossentropy',
                   optimizer='adam',metrics=['accuracy'])
 
-    print "Train..." # batch_size=32
+    print("Train...") # batch_size=32
     model.fit(x_train, y_train, batch_size=batch_size, epochs=n_epoch,verbose=1)
 
-    print "Evaluate..."
+    print ("Evaluate...")
     score = model.evaluate(x_test, y_test,
                                 batch_size=batch_size)
 
@@ -151,20 +151,20 @@ def train_lstm(n_symbols,embedding_weights,x_train,y_train,x_test,y_test):
     with open('../model/lstm.yml', 'w') as outfile:
         outfile.write( yaml.dump(yaml_string, default_flow_style=True) )
     model.save_weights('../model/lstm.h5')
-    print 'Test score:', score
+    print ('Test score:', score)
 
 
 #训练模型，并保存
-print 'Loading Data...'
+print ('Loading Data...')
 combined,y=loadfile()
 print len(combined),len(y)
-print 'Tokenising...'
+print ('Tokenising...')
 combined = tokenizer(combined)
-print 'Training a Word2vec model...'
+print ('Training a Word2vec model...')
 index_dict, word_vectors,combined=word2vec_train(combined)
 
-print 'Setting up Arrays for Keras Embedding Layer...'
+print ('Setting up Arrays for Keras Embedding Layer...')
 n_symbols,embedding_weights,x_train,y_train,x_test,y_test=get_data(index_dict, word_vectors,combined,y)
-print "x_train.shape and y_train.shape:"
+print ("x_train.shape and y_train.shape:")
 print x_train.shape,y_train.shape
 train_lstm(n_symbols,embedding_weights,x_train,y_train,x_test,y_test)

@@ -124,7 +124,7 @@ def get_data(index_dict,word_vectors,combined,y):
 
 ##定义网络结构
 def train_lstm(n_symbols,embedding_weights,x_train,y_train,x_test,y_test):
-    print 'Defining a Simple Keras Model...'
+    print('Variable x: {}'.format(x))
     model = Sequential()  # or Graph or whatever
     model.add(Embedding(output_dim=vocab_dim,
                         input_dim=n_symbols,
@@ -136,7 +136,7 @@ def train_lstm(n_symbols,embedding_weights,x_train,y_train,x_test,y_test):
     model.add(Dense(3, activation='softmax')) # Dense=>全连接层,输出维度=3
     model.add(Activation('softmax'))
 
-    print 'Compiling the Model...'
+    print('Variable x: {}'.format(x))
     model.compile(loss='categorical_crossentropy',
                   optimizer='adam',metrics=['accuracy'])
 

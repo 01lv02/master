@@ -3,6 +3,7 @@
 """
 预测
 """
+import streamlit as st
 import jieba
 import numpy as np
 from gensim.models.word2vec import Word2Vec

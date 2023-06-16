@@ -79,7 +79,7 @@ def lstm_predict(string):
     result=model.predict_classes(data)
     # print result # [[1]]
     if result[0]==1:
-        print string,' positive'
+        print (string,' positive')
     elif result[0]==0:
         print (string,' neural')
     else:
